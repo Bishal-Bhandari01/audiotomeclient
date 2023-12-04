@@ -1,0 +1,12 @@
+.footer {
+  background: #BD00FF !important;
+  opacity: 10 !important;
+}
+p,h5{
+  color: #BD00FF;
+}
+.customCard{
+  border: 2px solid #BD00FF; 
+  margin-right: 20px;
+  margin-bottom: 20px;
+}

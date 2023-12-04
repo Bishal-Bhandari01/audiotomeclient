@@ -1,0 +1,38 @@
+.audiobookImage {
+  width: 20rem !important;
+  height: auto !important;
+  border-radius: 5%;
+}
+.recommandaudiobook {
+  width: 6rem !important;
+  height: auto !important;
+  border-radius: 5%;
+}
+.comment-image {
+  width: 70px !important;
+  border-radius: 50% !important;
+}
+.recommandbackground {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(73, 26, 72, 1) 86%
+  );
+  color: white;
+}
+.recommandaudio {
+  /* From https://css.glass */
+  background: rgba(2, 0, 36, 0.29);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(73, 26, 72, 1) 86%
+  );
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(2, 0, 36, 0.3);
+  cursor: pointer;
+}

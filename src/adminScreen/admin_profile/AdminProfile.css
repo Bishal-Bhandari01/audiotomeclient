@@ -1,0 +1,13 @@
+.userSettingFormControl{
+    border: 2px solid #BD00FF !important;
+}
+.userSettingSaveBtn{
+    border: 2px solid #BD00FF !important;
+    color: #BD00FF;
+    transition: all 0.5s ease-out;
+}
+.userSettingSaveBtn:hover{
+    background: #BD00FF !important;
+    color: #fff !important;
+    transition: all 0.5s ease-in;
+}

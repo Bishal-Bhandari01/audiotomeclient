@@ -1,0 +1,13 @@
+.navbar, .dropdown-menu {
+  background: #BD00FF !important;
+}
+.dropdown-item:hover{
+  color: #BD00FF !important;
+  transition: 500ms all ease-in-out;
+}
+.navbar {
+  border-radius: 0 0 0 90px;
+}
+.customrowcss {
+  --mdb-gutter-x: none !important;
+}

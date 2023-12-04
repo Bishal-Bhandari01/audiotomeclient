@@ -1,0 +1,19 @@
+.register{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../../assets/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logoImg{
+    width: 20%;
+    filter: brightness(0) invert(1);
+}
+
+.userRegisterFormControl{
+    background: #bd00ff !important;
+    color: #fff !important;
+    border: none;
+    border-bottom: 3px solid #fff;
+}
