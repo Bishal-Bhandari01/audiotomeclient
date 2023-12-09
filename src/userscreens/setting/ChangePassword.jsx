@@ -5,7 +5,6 @@ import '../profile/Profile.css'
 export default function ChangePassword() {
   return (
     <>
-      <NavBar />
       <div className="container my-5">
         <div className="card">
           <div className="card-body">

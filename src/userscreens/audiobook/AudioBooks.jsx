@@ -1,36 +1,29 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import NavBar from "../../theme/Navbar";
 import "./AudioBook.css";
-import song from "../../assets/quala.mp3";
 import { GetAudioBookByStatus } from "../../environment/AudiobookService";
 import { useNavigate } from "react-router-dom";
+import Player from "../../player/Player";
+import Marquee from "react-fast-marquee";
+
 
 export default function AudioBooks() {
   const [searchedAudio, setSearchedAudio] = useState("");
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState("");
-
-  const [duration, setDuration] = useState(0);
 
   const [playerData, setPlayerData] = useState("");
   const [audioBookAuthor, setAudioBookAuthor] = useState("");
 
   const [audioBook, setAudioBook] = useState([]);
 
-  const audioEle = useRef();
-
   const navigate = useNavigate();
 
+  const audioElm = useRef();
+
   const TooglePlayPause = (items) => {
-    const prevSong = isPlaying;
     setCurrentSong(items);
-    setIsPlaying(!prevSong);
-    if (prevSong) {
-      audioEle.current.play();
-    } else {
-      audioEle.current.pause();
-    }
-    setDuration(audioEle.current.duration);
   };
 
   const Searched = (event) => {
@@ -44,6 +37,16 @@ export default function AudioBooks() {
   };
 
   useEffect(() => {
+    // setIsPlaying(!isPlaying)
+    if (isPlaying) {
+      audioElm.current.play();
+    }
+    else {
+      audioElm.current.pause();
+    }
+  }, [])
+
+  useEffect(() => {
     getAudioBook();
     const timer = setInterval(() => {
       getAudioBook();
@@ -53,7 +56,6 @@ export default function AudioBooks() {
 
   return (
     <>
-      <NavBar />
       <div className="container mt-5 mb-3">
         <div className="d-flex justify-content-end">
           <div className="input-group w-50 mb-3">
@@ -108,6 +110,7 @@ export default function AudioBooks() {
                         TooglePlayPause(items.abookAudio);
                         setPlayerData(items.abookName);
                         setAudioBookAuthor(items.abookAuthor)
+                        setIsPlaying(true)
                       }}
                     >
                       <i className="fa-solid fa-play"></i>
@@ -123,7 +126,7 @@ export default function AudioBooks() {
               );
             })}
         </div>
-      </div>
+      </div >
       <div
         className={
           playerData !== ""
@@ -132,15 +135,26 @@ export default function AudioBooks() {
         }
       >
         <div className="container">
-          <h6 className="text-center text-light mb-3">{playerData} - By <span className="text-decoration-underline">{audioBookAuthor}</span></h6>
+          <Marquee
+            speed={30}>
+            <h5 className="text-center text-light mb-1 mt-1">
+              {playerData} - By {" "}
+              <span className="text-decoration-underline">
+                {audioBookAuthor}
+              </span>
+            </h5>
+          </Marquee>
+
           <audio
-            className={playerData !== "" ? `sticky-bottom w-100` : "d-none"}
-            controls
-            autoPlay
-            ref={audioEle}
+            className={"d-none"}
+            ref={audioElm}
             src={currentSong}
-            type="audio/mp3"
+            autoPlay
           />
+          <Player
+            isplaying={isPlaying}
+            setIsplaying={setIsPlaying}
+            audioElm={audioElm} />
         </div>
       </div>
     </>

@@ -5,7 +5,7 @@ import logo from "../assets/New Project.png";
 import DefaultUser from "../assets/defaultuser.png";
 
 const NavMenu = [
-  { name: "Home", link: "/" },
+  { name: "Home", link: "/home" },
   { name: "Audio Book", link: "/audiobooks" },
   { name: "Notes", link: "/notes" },
   { name: "About Us", link: "/aboutus" },

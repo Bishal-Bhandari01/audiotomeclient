@@ -103,7 +103,7 @@ export default function Profile() {
     });
   }, []);
 
-  const DeleteAccount = () => {};
+  const DeleteAccount = () => { };
 
   function calculate_age(dob) {
     var diff_ms = Date.now() - dob.getTime();
@@ -114,7 +114,6 @@ export default function Profile() {
 
   return (
     <>
-      <NavBar />
       <main className="container mt-5">
         <div className="row">
           <div className="col-sm-4">
@@ -437,7 +436,7 @@ export default function Profile() {
                       <button
                         type="btn"
                         className="btn btn-info btn-lg mb-3 w-100"
-                        // onClick={DeleteAccount}
+                      // onClick={DeleteAccount}
                       >
                         <i className="fa-solid fa-download"></i> Download
                       </button>

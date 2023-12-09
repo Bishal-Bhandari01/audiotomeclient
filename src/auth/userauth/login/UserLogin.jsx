@@ -36,7 +36,7 @@ export default function UserLogin() {
     if (role === "ADMIN") {
       navigate("/admin/dashboard")
     } else {
-      navigate("/")
+      navigate("/home")
     }
   };
   return (

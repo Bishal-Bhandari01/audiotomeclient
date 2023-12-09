@@ -30,11 +30,11 @@ export default function FAQ() {
   ]);
 
   const ToogleFaq = (index) => {
-    setFaq(faq.map((item,i) => {
-      if(i === index){
+    setFaq(faq.map((item, i) => {
+      if (i === index) {
         item.open = !item.open;
       }
-      else{
+      else {
         item.open = false;
       }
       return item;
@@ -43,7 +43,6 @@ export default function FAQ() {
 
   return (
     <>
-      <NavBar />
       <div className="container mt-5">
         <p className="fs-4 fw-bold mb-2">FAQ</p>
         {faq.map((items, index) => {

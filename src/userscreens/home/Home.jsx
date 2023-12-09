@@ -57,7 +57,6 @@ export default function Home() {
 
   return (
     <>
-      <NavBar />
       <main className="container mt-5 mb-5">
 
         {/* <hr style={{ color: '#BD00FF' }} /> */}

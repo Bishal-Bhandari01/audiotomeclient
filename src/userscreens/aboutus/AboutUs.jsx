@@ -1,12 +1,10 @@
 import React from "react";
 import second from "../.../../../assets/New Project.png";
-import NavBar from "../../theme/Navbar";
 import mypic from "../../assets/mypic.jpg";
 
 export default function AboutUs() {
   return (
     <>
-      <NavBar />
       <div className="container mt-5">
         <div className="d-flex justify-content-center">
           <img src={second} alt="About" className="w-25" />

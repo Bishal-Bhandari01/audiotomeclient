@@ -14,7 +14,7 @@ export default function AudioBookDetail() {
   const [responseData, setResponseData] = useState({});
   const [totalComments, setTotalComments] = useState();
   const [comment, setComments] = useState([]);
-  const [recommand, setRecommand] = useState([]);
+  const [recommand, setRecommand] = useState(null);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('user')))
 
   const paramId = useParams("id");
@@ -44,13 +44,25 @@ export default function AudioBookDetail() {
     }
   }
 
+  const GetThreeDataOnly = (data) => {
+    let ThreeData = data.filter(item => {
+      return item.aId !== paramId.id;
+    })
+    const threeData = [];
+    for (let i = 0; i < 3; i++) {
+      threeData.push(ThreeData[i])
+    }
+    return threeData;
+  }
+
   const GetRecommandation = async () => {
     const data = {
       description: responseData.adescription
     }
     const resp = await GetAudiobookByDescription(data);
     const recommandData = resp.data;
-    setRecommand(recommandData);
+    const threeData = GetThreeDataOnly(recommandData)
+    setRecommand(threeData);
   };
 
   const GetCommentByAid = async () => {
@@ -91,7 +103,6 @@ export default function AudioBookDetail() {
         pauseOnHover
         theme="colored"
       />
-      <Navbar />
       <div className="container">
         <div className="card mt-4">
           <div className="card-body">
@@ -209,7 +220,7 @@ export default function AudioBookDetail() {
                     <div className="text-center fs-5 text-decoration-underline fw-bold mb-2">
                       Recommanded Audiobooks
                     </div>
-                    {recommand.map((item, index) => {
+                    {recommand?.map((item, index) => {
                       return (
                         <div
                           className="card recommandaudio"
